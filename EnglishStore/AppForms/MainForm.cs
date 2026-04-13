@@ -45,7 +45,7 @@ namespace EnglishStore.AppForms
 
         private void ShowProducts()
         {
-            List<Product> _productsList = Program.context.Product.OrderBy(p => p.Name).ToList();
+            _productsList = Program.context.Product.OrderBy(p => p.Name).ToList();
             foreach (Product prod in _productsList)
             {
                 var product = new ProductUserControl(prod);
@@ -88,6 +88,7 @@ namespace EnglishStore.AppForms
                 textBoxFind.Enabled = false;
                 manufacturerIDComboBox.Enabled = false;
             }
+            FillStatusStrip();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -171,8 +172,21 @@ namespace EnglishStore.AppForms
                     }
                 }
             }
+            FillStatusStrip();
         }
 
+        private void FillStatusStrip()
+        {
+            if (!IsGuest)
+                UserToolStripStatusLabel.Text = "Пользователь: " + _user.Login;
+            else
+                UserToolStripStatusLabel.Text = "Вы вошли без авторизации";
+
+            int currentCount = _productsList != null ? _productsList.Count : 0;
+            int totalCount = Program.context.Product.Count();
+
+            CountToolStripStatusLabel.Text = "Количество записей: " + _productsList.Count.ToString() + " из " + Program.context.Product.Count();
+        }
 
         private void manufacturerIDComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -195,5 +209,7 @@ namespace EnglishStore.AppForms
         {
             FindBooks();
         }
+
+       
     }
 }

@@ -32,25 +32,25 @@
             System.Windows.Forms.Label manufacturerIDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SortComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerIDComboBox = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.englishStore_DubininRADataSet = new EnglishStore.EnglishStore_DubininRADataSet();
-            this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxFind = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.productTableAdapter = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.ProductTableAdapter();
-            this.tableAdapterManager = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.TableAdapterManager();
-            this.manufacturerTableAdapter = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.ManufacturerTableAdapter();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.UserToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.SortComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productTableAdapter = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.ProductTableAdapter();
+            this.tableAdapterManager = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.TableAdapterManager();
+            this.manufacturerTableAdapter = new EnglishStore.EnglishStore_DubininRADataSetTableAdapters.ManufacturerTableAdapter();
             manufacturerIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,9 +58,9 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.englishStore_DubininRADataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // manufacturerIDLabel
@@ -102,6 +102,28 @@
             this.splitContainer1.SplitterDistance = 161;
             this.splitContainer1.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Сортировать по цене:";
+            // 
+            // SortComboBox
+            // 
+            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortComboBox.FormattingEnabled = true;
+            this.SortComboBox.Items.AddRange(new object[] {
+            "По убыванию",
+            "По возрастанию"});
+            this.SortComboBox.Location = new System.Drawing.Point(13, 120);
+            this.SortComboBox.Name = "SortComboBox";
+            this.SortComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SortComboBox.TabIndex = 10;
+            this.SortComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // manufacturerIDComboBox
             // 
             this.manufacturerIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "ID", true));
@@ -122,11 +144,6 @@
             // 
             this.englishStore_DubininRADataSet.DataSetName = "EnglishStore_DubininRADataSet";
             this.englishStore_DubininRADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // manufacturerBindingSource
-            // 
-            this.manufacturerBindingSource.DataMember = "Manufacturer";
-            this.manufacturerBindingSource.DataSource = this.englishStore_DubininRADataSet;
             // 
             // label1
             // 
@@ -185,33 +202,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 474);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ManufacturerTableAdapter = this.manufacturerTableAdapter;
-            this.tableAdapterManager.ProductTableAdapter = this.productTableAdapter;
-            this.tableAdapterManager.SaleTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = EnglishStore.EnglishStore_DubininRADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserTableAdapter = null;
-            // 
-            // manufacturerTableAdapter
-            // 
-            this.manufacturerTableAdapter.ClearBeforeFill = true;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -235,27 +225,37 @@
             this.CountToolStripStatusLabel.Size = new System.Drawing.Size(122, 17);
             this.CountToolStripStatusLabel.Text = "Количество записей:";
             // 
-            // SortComboBox
+            // flowLayoutPanel1
             // 
-            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SortComboBox.FormattingEnabled = true;
-            this.SortComboBox.Items.AddRange(new object[] {
-            "По убыванию",
-            "По возрастанию"});
-            this.SortComboBox.Location = new System.Drawing.Point(13, 120);
-            this.SortComboBox.Name = "SortComboBox";
-            this.SortComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SortComboBox.TabIndex = 10;
-            this.SortComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 474);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // label2
+            // manufacturerBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Сортировать по цене:";
+            this.manufacturerBindingSource.DataMember = "Manufacturer";
+            this.manufacturerBindingSource.DataSource = this.englishStore_DubininRADataSet;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ManufacturerTableAdapter = this.manufacturerTableAdapter;
+            this.tableAdapterManager.ProductTableAdapter = this.productTableAdapter;
+            this.tableAdapterManager.SaleTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = EnglishStore.EnglishStore_DubininRADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserTableAdapter = null;
+            // 
+            // manufacturerTableAdapter
+            // 
+            this.manufacturerTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -276,10 +276,10 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.englishStore_DubininRADataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

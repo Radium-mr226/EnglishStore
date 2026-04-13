@@ -43,6 +43,7 @@
             this.ProductNameLabel.TabIndex = 1;
             this.ProductNameLabel.Text = "Название";
             this.ProductNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProductNameLabel.Click += new System.EventHandler(this.IsActivatedlabel_Click);
             // 
             // CostLabel
             // 
@@ -52,6 +53,7 @@
             this.CostLabel.TabIndex = 2;
             this.CostLabel.Text = "Цена";
             this.CostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CostLabel.Click += new System.EventHandler(this.IsActivatedlabel_Click);
             // 
             // pictureBox1
             // 
@@ -60,6 +62,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(175, 175);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.IsActivatedlabel_Click);
             // 
             // IsActivatedlabel
             // 
@@ -70,6 +73,7 @@
             this.IsActivatedlabel.Text = "Статус";
             this.IsActivatedlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.IsActivatedlabel.Visible = false;
+            this.IsActivatedlabel.Click += new System.EventHandler(this.IsActivatedlabel_Click);
             // 
             // ProductUserControl
             // 
@@ -82,6 +86,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ProductUserControl";
             this.Size = new System.Drawing.Size(240, 314);
+            this.Click += new System.EventHandler(this.IsActivatedlabel_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

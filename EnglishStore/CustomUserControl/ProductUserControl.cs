@@ -1,4 +1,5 @@
-﻿using EnglishStore.Models;
+﻿using EnglishStore.AppForms;
+using EnglishStore.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,12 @@ namespace EnglishStore.CustomUserControl
                 IsActivatedlabel.Text = "Неактивен";
                 this.BackColor = Color.Gray;
             }
+        }
+
+        private void IsActivatedlabel_Click(object sender, EventArgs e)
+        {
+            HistoryForm historyForm = new HistoryForm(_product);
+            historyForm.ShowDialog();
         }
     }
 }
